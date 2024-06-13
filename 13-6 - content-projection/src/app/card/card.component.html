@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+
+
+<p><ng-content></ng-content></p>
+
+<!-- By doing that we select some element to be showed here by its attribute -->
+<ng-content select="[some-element-attribute]"></ng-content>
+
+<!-- by selecting like that we can select any element that comes from the parent in this case we could use -div- for example-->
+<ng-content select="some-element"></ng-content>
+
+<footer style="border: 1px solid red">
+  <!-- it selects the directive to present content at this location -->
+  <ng-content select="app-card-footer"></ng-content>
+</footer>
