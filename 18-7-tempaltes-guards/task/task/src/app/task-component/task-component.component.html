@@ -1,0 +1,10 @@
+@if(templateRef()){
+  <ng-container [ngTemplateOutlet]="templateRef()"></ng-container>
+}
+@else {
+  <ng-container [ngTemplateOutlet]="noTemplate"></ng-container>
+}
+
+<ng-template #noTemplate>
+  <p>This is the fallback content</p>
+</ng-template>
