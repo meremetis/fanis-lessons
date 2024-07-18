@@ -1,0 +1,6 @@
+Create a component that accepts as input (component input) an NgTemplate.
+Name that input as `templateRef = input()`.
+ 
+If the templateRef exists as an input value, display it in the component.
+If the templateRef doesn't exist as in input value, display a fallback template.
+The fallback template should have the content "This is the fallback content"
