@@ -1,0 +1,77 @@
+<!-- ----------------Case 1---------------- -->
+<!-- ng template: approach  -->
+<!-- <div
+  style="
+    border: 1px solid red;
+    width: 400px;
+    height: 250px;
+    margin-bottom: 16px;
+  "
+>
+  <ng-template
+    [ngTemplateOutlet]="list"
+    [ngTemplateOutletContext]="{ listContext: 'Products' }"
+  ></ng-template>
+</div>
+
+<div style="border: 1px solid green; width: 400px; height: 250px">
+  <ng-template
+    [ngTemplateOutlet]="list"
+    [ngTemplateOutletContext]="{ listContext: 'Users' }"
+  ></ng-template>
+</div>
+
+<ng-template #list let-listPlaceholder="listContext">
+  <p>This is a list of {{ listPlaceholder }}</p>
+</ng-template> -->
+
+<!-- ---------------- Case 2 ---------------- -->
+<!-- An other approach would be: to have ng-container instead of ng-template for placeholder -->
+<!-- <div
+  style="
+    border: 1px solid red;
+    width: 400px;
+    height: 250px;
+    margin-bottom: 16px;
+  "
+> -->
+<!-- !notice here -->
+<!-- <ng-container
+    [ngTemplateOutlet]="list"
+    [ngTemplateOutletContext]="{ listContext: 'Products' }"
+  ></ng-container>
+</div>
+
+<div style="border: 1px solid green; width: 400px; height: 250px">
+  <ng-template
+    [ngTemplateOutlet]="list"
+    [ngTemplateOutletContext]="{ listContext: 'Users' }"
+  ></ng-template>
+</div>
+
+<ng-template #list let-listPlaceholder="listContext">
+  <p>This is a list of {{ listPlaceholder }}</p>
+</ng-template> -->
+
+<!-- ---------------- Case 3 ---------------- -->
+<!-- A more dynamic approach -->
+<div *ngFor="let listItem of lists">
+<div
+[ngStyle]="{borderColor: listItem.color}"
+  style="
+    border: 1px solid;
+    width: 400px;
+    height: 250px;
+    margin-bottom: 16px;
+  "
+>
+  <ng-template
+    [ngTemplateOutlet]="list"
+    [ngTemplateOutletContext]="{ listContext: listItem.name }"
+  ></ng-template>
+</div>
+</div>
+
+<ng-template #list let-listPlaceholder="listContext">
+  <p>This is a list of {{ listPlaceholder }}</p>
+</ng-template>
