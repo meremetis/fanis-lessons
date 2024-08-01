@@ -1,0 +1,38 @@
+exhaustMap -> takes the first of many subscriptions if they are not finished (letssay deboucne. it goes 1 - 2 - 3 - 4 - 5 but executes (1))
+switchMap -> takes the last of many subscriptions if they are not finished (letssay deboucne. it goes 1 - 2 - 3 - 4 - 5 but executes (5))
+mergeMap -> sends all the request in parallel even if they are not finished (didn't return any value. it goes 1/2/3/4/5 at the same time)
+concatMap -> sends multiple requests but does the in a sequence (waits for the first to be completed and then sends the next one and so on. so it goes 1 - 2 - 3 - 4 - 5 - 6)
+
+map -> takes a value and returns a value
+
+
+--------------from---------------------
+
+creates an observable and sends values 1 by 1. if it was an array it would create an observable for each one of them.
+
+
+------------of------------------
+
+creates an observable from the hole array. so the observable returnes would contain a hole array
+
+
+------------destroyRef-------------
+holds the reference of the component initialization
+
+
+
+------takeUntilDestroyed------------
+if it is used inside component it takes the initialization reference by default
+
+if it isn't used inside component then you have to give explicitly the reference.
+
+
+
+---------------------debounceTime---------------
+
+executes the iperators bellow it after a given time.
+
+
+
+------------js map-----------
+takes an array and returns an array

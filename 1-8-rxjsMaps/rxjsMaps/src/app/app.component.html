@@ -1,0 +1,14 @@
+<input type="text" #input>
+
+
+<mat-list>
+  @for (item of items; track $index) {
+    <mat-list-item>
+      <mat-checkbox></mat-checkbox>
+      <span>{{ item }}</span>
+      <button mat-icon-button (click)="buttonItems$.next(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  }
+</mat-list>
