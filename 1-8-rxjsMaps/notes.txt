@@ -1,38 +1,40 @@
-exhaustMap -> takes the first of many subscriptions if they are not finished (letssay deboucne. it goes 1 - 2 - 3 - 4 - 5 but executes (1))
-switchMap -> takes the last of many subscriptions if they are not finished (letssay deboucne. it goes 1 - 2 - 3 - 4 - 5 but executes (5))
-mergeMap -> sends all the request in parallel even if they are not finished (didn't return any value. it goes 1/2/3/4/5 at the same time)
-concatMap -> sends multiple requests but does the in a sequence (waits for the first to be completed and then sends the next one and so on. so it goes 1 - 2 - 3 - 4 - 5 - 6)
+### RxJS Operators
 
-map -> takes a value and returns a value
+**exhaustMap**
+- Takes the first of many subscriptions if they are not finished (e.g., with debounce). If it goes 1 - 2 - 3 - 4 - 5, only (1) is executed.
 
+**switchMap**
+- Takes the last of many subscriptions if they are not finished (e.g., with debounce). If it goes 1 - 2 - 3 - 4 - 5, only (5) is executed.
 
---------------from---------------------
+**mergeMap**
+- Sends all requests in parallel, even if they are not finished (i.e., it didn't return any value yet). It goes 1/2/3/4/5 at the same time.
 
-creates an observable and sends values 1 by 1. if it was an array it would create an observable for each one of them.
+**concatMap**
+- Sends multiple requests in sequence, waiting for the first to complete before sending the next one. It goes 1 - 2 - 3 - 4 - 5.
 
+**map**
+- Takes a value and returns a value.
 
-------------of------------------
+### Observable Creation
 
-creates an observable from the hole array. so the observable returnes would contain a hole array
+**from**
+- Creates an observable and sends values one by one. If it was an array, it would create an observable for each item.
 
+**of**
+- Creates an observable from the whole array, so the returned observable contains the entire array.
 
-------------destroyRef-------------
-holds the reference of the component initialization
+### Angular Component Utilities
 
+**destroyRef**
+- Holds the reference of the component's initialization.
 
+**takeUntilDestroyed**
+- If used inside a constuctor, it takes the initialization reference by default. If used outside a constuctor, you need to explicitly provide the reference.
 
-------takeUntilDestroyed------------
-if it is used inside component it takes the initialization reference by default
+### Additional Functions
 
-if it isn't used inside component then you have to give explicitly the reference.
+**debounceTime**
+- Executes the operators below it after a given time.
 
-
-
----------------------debounceTime---------------
-
-executes the iperators bellow it after a given time.
-
-
-
-------------js map-----------
-takes an array and returns an array
+**JavaScript map**
+- Takes an array and returns a new array.
